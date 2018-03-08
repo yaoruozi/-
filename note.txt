@@ -1,0 +1,13 @@
+1 插入一个运动员，void  addPlayer(Player player)
+
+  相当于插入一个运动员对象
+  
+二  使用PreparedStatement对象：
+  原因：（1）使用Statement需要拼接SQL，太费劲，也容易出错。
+  String sql = "insert into userinfo" + " values (" + player.getId() + ",'" + player.getPlayerID() + "','"
+				+ player.getName() + "','" + player.getTeam() + "','" + player.getCity() + "'," + player.getMaxScore()
+				+ ",'" + player.getDraftyear() + "')";
+  PreparedStatement 在创建时就可以直接传入一个SQL语句，并且字段使用占位符即可，提供了处理占位符值得方法
+  PreparedStatement ps = Connection.PreparedStatement(sql);
+      在执行ps.executeUpdate()里面不再需要传入SQL语句
+     （2）PreparedStatement可以有效的禁止SQL注入
