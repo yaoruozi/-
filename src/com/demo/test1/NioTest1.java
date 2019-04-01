@@ -15,7 +15,7 @@ import org.junit.Test;
  * 
  * private int mark = -1; private int position = 0; 表示缓冲区中正在被操作的数据的位置 private
  * int limit; 界限，表示缓冲区可操作数据的大小，一旦limit以后，数据就不可以再进行读写 private int capacity;
- * 表示缓冲区中存放数据的最大容量，一旦声明就不能更改
+ * 表示缓冲区中存放数据的最大容量，一旦声明就不能更改声明
  */
 
 public class NioTest1 {
@@ -36,6 +36,9 @@ public class NioTest1 {
 
 		System.out.println("-------get------");
 		System.out.println(byteBuffer.get(3));
+
+		// 切换读取数据模式
+		byteBuffer.flip();
 
 	}
 
